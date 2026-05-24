@@ -1,63 +1,956 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Divya Devaraj Resume</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 30px;
-      line-height: 1.6;
-    }
-    h1 {
-      color: #1f4e79;
-    }
-    h2 {
-      border-bottom: 2px solid #1f4e79;
-      padding-bottom: 5px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divya Muniswamappa Devaraj — SAP Technical Lead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D2B55;
+    --navy-light: #1A3D70;
+    --navy-mid: #1e4a8c;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #FBF5E8;
+    --white: #FFFFFF;
+    --gray-light: #F4F5F7;
+    --gray-mid: #E8E9EC;
+    --gray-dark: #6B7280;
+    --text-main: #1A1A2E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--white);
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1.5px solid var(--gray-mid);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 64px;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-brand span {
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(150deg, var(--white) 0%, var(--gray-light) 60%, var(--gray-mid) 100%);
+    display: flex;
+    align-items: center;
+    padding: 100px 8% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -80px;
+    width: 520px; height: 520px;
+    border-radius: 50%;
+    border: 60px solid var(--gold-pale);
+    opacity: 0.6;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 5%;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 40px solid var(--gray-mid);
+    opacity: 0.5;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-text {}
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-title {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--gray-dark);
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-summary {
+    font-size: 0.97rem;
+    color: #444;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.85;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--navy);
+    color: var(--white);
+    padding: 0.75rem 2rem;
+    border-radius: 2px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    border: 2px solid var(--navy);
+  }
+
+  .btn-primary:hover { background: var(--navy-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--navy);
+    padding: 0.75rem 2rem;
+    border-radius: 2px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--navy);
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover { background: var(--navy); color: var(--white); }
+
+  .hero-photo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-photo-frame {
+    position: relative;
+  }
+
+  .hero-photo-frame::before {
+    content: '';
+    position: absolute;
+    top: 20px; left: 20px;
+    right: -20px; bottom: -20px;
+    border: 3px solid var(--gold);
+    border-radius: 4px;
+    z-index: 0;
+  }
+
+  .hero-photo {
+    width: 340px;
+    height: 420px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 4px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(8%);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gray-mid);
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-dark);
+    margin-top: 4px;
+  }
+
+  /* SECTION BASE */
+  section { padding: 90px 8%; }
+
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3rem;
+  }
+
+  /* SKILLS */
+  .skills-section { background: var(--gray-light); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-card {
+    background: var(--white);
+    border: 1px solid var(--gray-mid);
+    border-top: 3px solid var(--gold);
+    padding: 1.8rem;
+    border-radius: 2px;
+  }
+
+  .skill-card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .skill-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.8rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 2px;
+    background: var(--gold-pale);
+    color: var(--navy);
+    border: 1px solid #DEC87A;
+  }
+
+  /* EXPERIENCE */
+  .experience-section { background: var(--white); }
+
+  .timeline { position: relative; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 8px; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--gray-mid));
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .timeline-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 3px solid var(--gold);
+    margin-top: 4px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-content {
+    background: var(--gray-light);
+    border: 1px solid var(--gray-mid);
+    border-left: 4px solid var(--navy);
+    padding: 1.8rem 2rem;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .job-company {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .job-date {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    background: var(--gold-pale);
+    padding: 3px 12px;
+    border: 1px solid #DEC87A;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .job-role {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--gray-dark);
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+  }
+
+  .job-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .job-bullets li {
+    font-size: 0.92rem;
+    color: #444;
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.65;
+  }
+
+  .job-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 11px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* EDUCATION */
+  .education-section { background: var(--navy); }
+
+  .education-section .section-title { color: var(--white); }
+  .education-section .section-eyebrow { color: var(--gold); }
+  .education-section .section-eyebrow::before { background: var(--gold); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .edu-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 2rem;
+    border-radius: 2px;
+    border-top: 3px solid var(--gold);
+  }
+
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .edu-institution {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .edu-year {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em;
+  }
+
+  /* CERTIFICATIONS */
+  .cert-section { background: var(--gray-light); }
+
+  .cert-card {
+    background: var(--white);
+    border: 1px solid var(--gray-mid);
+    border-left: 4px solid var(--gold);
+    padding: 1.5rem 2rem;
+    border-radius: 0 2px 2px 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 600px;
+  }
+
+  .cert-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .cert-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+
+  .cert-org {
+    font-size: 0.8rem;
+    color: var(--gray-dark);
+  }
+
+  /* CONTACT */
+  .contact-section { background: var(--white); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-intro {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-list li a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .contact-list li a:hover { color: var(--gold); }
+
+  .contact-icon {
+    width: 36px; height: 36px;
+    background: var(--gold-pale);
+    border: 1px solid #DEC87A;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .looking-for {
+    background: var(--gold-pale);
+    border: 1px solid #DEC87A;
+    border-left: 4px solid var(--gold);
+    padding: 2rem;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .looking-for h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--navy);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .role-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .role-tag {
+    font-size: 0.88rem;
+    color: var(--navy);
+    padding: 0.5rem 1rem;
+    background: var(--white);
+    border: 1px solid #DEC87A;
+    border-radius: 2px;
+    font-weight: 400;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2rem 8%;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-text > * {
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-text > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-text > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-text > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-text > *:nth-child(4) { animation-delay: 0.55s; }
+  .hero-text > *:nth-child(5) { animation-delay: 0.7s; }
+
+  .hero-photo-wrap {
+    animation: fadeUp 0.9s 0.3s ease both;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-photo { width: 260px; height: 320px; }
+    .hero-photo-wrap { order: -1; }
+    .nav-links { display: none; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    section { padding: 60px 6%; }
+  }
+</style>
 </head>
 <body>
 
-  <h1>Divya Devaraj</h1>
-  <p>
-    SAP ABAP Technical Lead | S/4HANA | RAP | CDS Views | OData | SAP Fiori
-  </p>
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Divya<span> Muniswamappa Devaraj</span></div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <h2>Professional Summary</h2>
-  <p>
-    SAP ABAP professional with 14+ years of experience in SAP ECC, S/4HANA,
-    ABAP on HANA, RAP, CDS Views, OData services, integrations, enhancements,
-    and production support.
-  </p>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">SAP Technical Lead</div>
+      <h1 class="hero-name">Divya<br>Devaraj</h1>
+      <p class="hero-title">SAP ABAP · S/4HANA · Analytics Cloud · MSBA @ University of Arizona</p>
+      <p class="hero-summary">
+        14+ years delivering enterprise-scale SAP solutions across S/4HANA, SAP ECC, and SAP BTP. Bridging deep SAP technical expertise with business analytics — a rare combination in the SAP ecosystem.
+      </p>
+      <div class="hero-cta">
+        <a href="#experience" class="btn-primary">View Experience</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">14+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div>
+          <div class="stat-num">200+</div>
+          <div class="stat-label">SNOTE Implementations</div>
+        </div>
+        <div>
+          <div class="stat-num">25%</div>
+          <div class="stat-label">Customization Reduction</div>
+        </div>
+      </div>
+    </div>
 
-  <h2>Skills</h2>
-  <p>
-    SAP ABAP, ABAP on HANA, RAP, CDS Views, OData, SAP Fiori, SAP UI5,
-    BAPI, RFC, IDoc, ALE, EDI, BADIs, User Exits, Smart Forms, SAPscript,
-    S/4HANA, ECC, Data Migration.
-  </p>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <img
+          src="webresume.png"
+          alt="Divya Devaraj"
+          class="hero-photo"
+          onerror="this.style.background='#E8E9EC'; this.alt='Photo'; this.removeAttribute('src');"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
-  <h2>Experience</h2>
-  <h3>SAP ABAP Technical Lead</h3>
-  <p>
-    Developed and supported SAP ABAP applications across ECC and S/4HANA
-    environments, including RICEF objects, integrations, enhancements,
-    CDS views, RAP business objects, and OData services.
-  </p>
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-inner">
+    <div class="section-eyebrow">Core Competencies</div>
+    <h2 class="section-title">Technical Expertise</h2>
+    <div class="skills-grid">
 
-  <h2>Education</h2>
-  <p>
-    Master of Science in Business Analytics, University of Arizona
-  </p>
+      <div class="skill-card">
+        <div class="skill-card-icon">⚙️</div>
+        <div class="skill-card-title">SAP ABAP Development</div>
+        <div class="skill-tags">
+          <span class="tag">ABAP on HANA</span>
+          <span class="tag">OO-ABAP</span>
+          <span class="tag">RAP Model</span>
+          <span class="tag">CDS Views</span>
+          <span class="tag">AMDP</span>
+          <span class="tag">OData</span>
+        </div>
+      </div>
 
-  <h2>Contact</h2>
-  <p>
-    Email: your.email@example.com <br>
-    LinkedIn: https://www.linkedin.com/in/your-profile
-  </p>
+      <div class="skill-card">
+        <div class="skill-card-icon">🖥️</div>
+        <div class="skill-card-title">Fiori Development</div>
+        <div class="skill-tags">
+          <span class="tag">SAP Fiori</span>
+          <span class="tag">SAP Gateway</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-icon">🔗</div>
+        <div class="skill-card-title">Enterprise Integrations</div>
+        <div class="skill-tags">
+          <span class="tag">IDoc</span>
+          <span class="tag">RFC</span>
+          <span class="tag">BAPI</span>
+          <span class="tag">ALE</span>
+          <span class="tag">EDI</span>
+          <span class="tag">SAP Integration Suite</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-icon">☁️</div>
+        <div class="skill-card-title">SAP BTP & Cloud</div>
+        <div class="skill-tags">
+          <span class="tag">SAP BTP</span>
+          <span class="tag">Clean Core</span>
+          <span class="tag">S/4HANA</span>
+          <span class="tag">Side-by-Side Ext.</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-icon">📊</div>
+        <div class="skill-card-title">Business Analytics</div>
+        <div class="skill-tags">
+          <span class="tag">SAP Analytics Cloud</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Python</span>
+          <span class="tag">Predictive Modeling</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-icon">🚀</div>
+        <div class="skill-card-title">Delivery & Leadership</div>
+        <div class="skill-tags">
+          <span class="tag">Agile / Scrum</span>
+          <span class="tag">Team Mentoring</span>
+          <span class="tag">Incident Management</span>
+          <span class="tag">SLA Delivery</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience-section" id="experience">
+  <div class="section-inner">
+    <div class="section-eyebrow">Career Journey</div>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="job-header">
+            <div class="job-company">Accenture</div>
+            <div class="job-date">Oct 2024 – Jul 2025</div>
+          </div>
+          <div class="job-role">Software Developer Team Lead · Bengaluru</div>
+          <ul class="job-bullets">
+            <li>Designed and implemented RICEFW objects including Reports, Interfaces, Enhancements, and Forms for Order-to-Cash (OTC) and Procure-to-Pay (P2P) business processes.</li>
+            <li>Collaborated with business stakeholders, functional consultants, and cross-functional teams to improve solution quality, deployment stability, and application reliability.</li>
+            <li>Developed and optimized interfaces using RFC, BAPI, IDoc, and web service integrations to enable seamless SAP-to-external-system communication.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="job-header">
+            <div class="job-company">Tata Consultancy Services</div>
+            <div class="job-date">Oct 2017 – Oct 2024</div>
+          </div>
+          <div class="job-role">Senior Software Developer · Bengaluru · 7 years</div>
+          <ul class="job-bullets">
+            <li>Designed CDS Views, RAP business objects, and OData services to expose backend SAP data for SAP Fiori applications.</li>
+            <li>Implemented side-by-side and classic extensibility solutions using SAP BTP and SAP Integration technologies, reducing upgrade-related customization efforts by 25%.</li>
+            <li>Mentored junior developers, conducted knowledge transfer sessions, and improved Agile team delivery efficiency by 20%.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="job-header">
+            <div class="job-company">ASAP</div>
+            <div class="job-date">Dec 2016 – Oct 2017</div>
+          </div>
+          <div class="job-role">Senior Software Developer · Bengaluru</div>
+          <ul class="job-bullets">
+            <li>Supported SAP ECC to S/4HANA data migration including extraction, cleansing, transformation, validation, and legacy data load using Migration Cockpit and custom ABAP programs.</li>
+            <li>Translated business requirements into technical specifications and scalable SAP solutions.</li>
+            <li>Worked with cross-functional teams to support enterprise process optimization.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="job-header">
+            <div class="job-company">Cognizant Technology Solutions</div>
+            <div class="job-date">Feb 2011 – Sep 2016</div>
+          </div>
+          <div class="job-role">Programming Analyst · Bengaluru · 5+ years</div>
+          <ul class="job-bullets">
+            <li>Developed RICEFW objects: reports, interfaces, enhancements, and forms across SAP ECC environments.</li>
+            <li>Supported SAP ECC environments by troubleshooting technical issues, debugging ABAP code, and resolving production incidents.</li>
+            <li>Implemented 200+ SNOTE implementations including pre- and post-manual activities.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education-section" id="education">
+  <div class="section-inner">
+    <div class="section-eyebrow">Academic Background</div>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">Master of Science in Business Analytics</div>
+        <div class="edu-institution">University of Arizona — Eller College of Management</div>
+        <div class="edu-year">Expected May 2026</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor of Engineering — Computer Science</div>
+        <div class="edu-institution">Reva Institute of Technology and Management</div>
+        <div class="edu-year">Bengaluru, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="cert-section" id="certifications">
+  <div class="section-inner">
+    <div class="section-eyebrow">Credentials</div>
+    <h2 class="section-title">Certifications</h2>
+    <div class="cert-card">
+      <div class="cert-icon">🏅</div>
+      <div>
+        <div class="cert-title">SAP Certified Development Associate – ABAP with SAP NetWeaver </div>
+      </div>
+    </div>
+  </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏅</div>
+      <div>
+        <div class="cert-title">Introducing SAP Business Data Cloud</div>
+        <div class="cert-org">SAP — Course Completion Certificate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow">Let's Connect</div>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">
+          Currently exploring Principal Consultant, SAP Technical Lead, and SAP Analyst roles across the United States. Open to connecting with teams building innovative SAP and data-driven enterprise solutions.
+        </p>
+        <ul class="contact-list">
+          <li>
+            <a href="tel:+16234326930">
+              <div class="contact-icon">📞</div>
+              +1 (623) 432-6930
+            </a>
+          </li>
+          <li>
+            <a href="mailto:divyadevaraju@gmail.com">
+              <div class="contact-icon">✉️</div>
+              divyadevaraju@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/divyadevaraj11" target="_blank" rel="noopener">
+              <div class="contact-icon">🔗</div>
+              linkedin.com/in/divyadevaraj11
+            </a>
+          </li>
+          <li>
+            <a href="#home">
+              <div class="contact-icon">📍</div>
+              United States
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="looking-for">
+          <h3>Currently Seeking</h3>
+          <div class="role-tags">
+            <div class="role-tag">Principal Consultant — SAP</div>
+            <div class="role-tag">SAP Technical Lead</div>
+            <div class="role-tag">SAP Analyst</div>
+            <div class="role-tag">SAP ABAP / S/4HANA Specialist</div>
+            <div class="role-tag">SAP Analytics Cloud Developer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Divya Muniswamappa Devaraj</span> · SAP Technical Lead · United States</p>
+</footer>
 
 </body>
 </html>
